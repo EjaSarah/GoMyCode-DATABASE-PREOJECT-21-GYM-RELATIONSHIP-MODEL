@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h2>
+        The owner informs you that: he has several gymnasiums which are
+        distinguished by their names, addresses and telephone number. Members
+        can register at one of these gymnasiums, so they must provide the
+        following information: unique identifier, last name, first name,
+        address, date of birth and gender. Each session is characterized by a
+        type of sport and a schedule and can accommodate a maximum of 20
+        members. The sessions are led by a maximum of two coaches who have a
+        last name, first name, age and specialty.
+      </h2>
+
+      <h1>
+        Here’s a detailed ER model based on the provided requirements: Entities
+        and Attributes
+      </h1>
+
+      <p>Gymnasium Gym_ID (Primary Key) Name Address Phone_Number</p>
+      <p>
+        Member Member_ID (Primary Key) Last_Name First_Name Address
+        Date_of_Birth Gender Gym_ID (Foreign Key)
+      </p>
+
+      <p>
+        Session Session_ID (Primary Key) Sport_Type Schedule Max_Members Gym_ID
+        (Foreign Key)
+      </p>
+      Coach
+
+      <p>Coach_ID (Primary Key) Last_Name First_Name Age Specialty</p>
+
+      <p>
+        Registration Registration_ID (Primary Key) Member_ID (Foreign Key)
+        Session_ID (Foreign Key) Coach_Session Coach_Session_ID (Primary Key)
+        Coach_ID (Foreign Key) Session_ID (Foreign Key)
+      </p>
+
+      <h3>Relationships</h3>
+      <p>
+        Gymnasium - Member: One-to-Many One
+        <br />
+        gymnasium can have many members. A member registers at one gymnasium.
+      </p>
+
+      <p>
+        Gymnasium - Session: One-to-Many. One gymnasium can host many sessions.
+        <br />
+        A session is held at one gymnasium.
+      </p>
+
+      <p>
+        Session - Registration: One-to-Many <br />One session can have many
+        registrations (up to 20 members per session). A registration is for one
+        session.
+      </p>
+
+      <p>
+        Member - Registration: One-to-Many <br />One member can have many
+        registrations. A registration is for one member.
+      </p>
+
+      <p>
+        Coach - Session: One-to-Many <br />One coach can lead many sessions. A
+        session can be led by up to two coaches.
+      </p>
+
+      <p>
+        Session - Session: One-to-Many One session can have up to two coaches. A
+        coach can lead many sessions.
+      </p>
+    </div>
+  </body>
+</html>
